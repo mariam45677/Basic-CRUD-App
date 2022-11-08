@@ -12,10 +12,11 @@ function ProductsDetails(){
             setproduct(product);
         })
     }, [])
+    
 
     return(
         <React.Fragment>
-      {product && <h1> {product.title},{product.price},{product.image} </h1>}
+      {product && <h1> {product.title},{product.price} </h1>}
         </React.Fragment>
     )
 }

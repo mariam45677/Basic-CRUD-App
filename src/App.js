@@ -6,6 +6,7 @@ import Home from "./componnents/pages/Home";
 import Products from "./componnents/pages/Products";
 import AddProducts from "./componnents/pages/AddProducts";
 import ProductsDetails from "./componnents/pages/ProductsDetails";
+import EditProducts from "./componnents/pages/EditProducts";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="products" element={<Products></Products>} />
         <Route path="products/add" element={<AddProducts></AddProducts>} />
         <Route path="products/:productsId" element={<ProductsDetails></ProductsDetails>} />
+        <Route path="products/edit/:productsId" element={<EditProducts></EditProducts>} />
       </Routes>
       </div>
       </div>

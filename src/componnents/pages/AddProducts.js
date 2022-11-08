@@ -6,16 +6,33 @@ function AddProducts(){
     const [price,setprice]=useState(0);
     let navigate =useNavigate();
     const submit =(e)=>{
-        e.preventDefault()
-        axios.post("http://localhost:9000/products", {
-            title,
-            price,
-        })
+        e.preventDefault();
+      //   axios.post("http://localhost:9000/products", {
+      //       title,
+      //       price,
+      //   })
+      //   .then((data)=>{
+      //       console.log(data);
+      //       navigate('/products');
+      //   })
+      // }
+        fetch("http://localhost:9000/products",{
+          method: "POST",
+          headers: {
+            "Content_Type": "Application/json",
+          },
+          body: JSON.stringify({
+          title,
+           price,
+          }),
+        }).then((res)=>res.json())
         .then((data)=>{
-            console.log(data);
-            navigate('/products');
-        })
-    }
+               console.log(data);
+               navigate('/products');
+           })
+          }
+   
+
     return(
         <>
         <form onSubmit={submit}>
@@ -25,6 +42,7 @@ function AddProducts(){
           id="exampleInputEmail1"
            aria-describedby="product title" 
           placeholder="product title"
+          
           onChange={(e)=>
             setTitle(e.target.value)
           }
